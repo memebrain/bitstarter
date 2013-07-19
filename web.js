@@ -3,11 +3,12 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  var buffer= buf.toString()
-  response.send(fs.readFileSync("index.html"));
+	var fs = require('fs');
+    var buffer = fs.readFileSync('index.html');
+    response.send(buf.toString(buffer));
 });
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
-  console.log("Listening on " + port);
+    console.log("Listening on " + port);
 });
